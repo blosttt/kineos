@@ -17,38 +17,68 @@
 
   <!-- Login Container (Overlay fullscreen when logged out) -->
   <div id="login-view" class="login-screen-wrapper">
-    <div class="login-card">
-      <div class="login-logo-circle">✦</div>
-      <h2 class="login-title">Ingresar a KineOS</h2>
-      <p class="login-subtitle">Introduce tus credenciales para acceder al sistema</p>
+    <!-- Left panel (Brand showcase) -->
+    <div class="login-left-panel">
+      <!-- Ambient Circle overlays for visual depth -->
+      <div class="login-ambient-circle circle-1"></div>
+      <div class="login-ambient-circle circle-2"></div>
+      <div class="login-ambient-circle circle-3"></div>
       
-      <form id="form-login">
-        <div class="form-group" style="text-align: left;">
-          <label for="login-email">Correo Electrónico</label>
-          <input type="email" id="login-email" class="form-control" placeholder="admin@kineos.cl" required>
+      <div class="login-left-logo">KineOS</div>
+      
+      <div class="login-left-content">
+        <h1 class="login-left-title">Tu centro,<br>en un solo lugar.</h1>
+        <p class="login-left-subtitle">Agenda, clientes, paquetes y finanzas — todo sincronizado en tiempo real.</p>
+      </div>
+      
+      <div class="login-left-footer">
+        © 2026 KineOS. Todos los derechos reservados.
+      </div>
+    </div>
+    
+    <!-- Right panel (Login form) -->
+    <div class="login-right-panel">
+      <div class="login-right-content">
+        <h2 class="login-right-title">Bienvenido de vuelta</h2>
+        <p class="login-right-subtitle">Ingresa tus credenciales para continuar.</p>
+        
+        <form id="form-login" class="login-form-element">
+          <div class="form-group" style="text-align: left;">
+            <label for="login-email" class="login-label">Correo electrónico</label>
+            <input type="email" id="login-email" class="form-control login-input" placeholder="nombre@empresa.com" required>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 24px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label for="login-pass" class="login-label" style="margin-bottom: 0;">Contraseña</label>
+              <a href="#" class="login-forgot-link" onclick="alert('Funcionalidad de recuperación en desarrollo para KineOS.')">¿Olvidaste tu contraseña?</a>
+            </div>
+            <input type="password" id="login-pass" class="form-control login-input" placeholder="••••••••" required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-login-submit">
+            Iniciar sesión
+          </button>
+        </form>
+        
+        <div class="login-signup-link-wrap">
+          ¿No tienes cuenta? <a href="#" class="login-signup-link" onclick="alert('Funcionalidad de registro en desarrollo para KineOS.')">Crea tu centro</a>
         </div>
-        <div class="form-group" style="margin-bottom:20px; text-align: left;">
-          <label for="login-pass">Contraseña</label>
-          <input type="password" id="login-pass" class="form-control" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px; font-size:0.95rem;">
-          Iniciar Sesión
-        </button>
-      </form>
-
-      <!-- Quick Demo Logins Helper -->
-      <div class="demo-logins-section">
-        <span class="demo-login-title">Ingresos Rápidos para Demo</span>
-        <div class="demo-buttons-grid">
-          <button class="btn btn-secondary btn-demo-login" data-email="admin@kineos.cl" data-pass="admin">
-            🔑 Administrador (Full Admin)
-          </button>
-          <button class="btn btn-secondary btn-demo-login" data-email="laura@kineos.cl" data-pass="laura">
-            💆 Laura Méndez (Kinesióloga)
-          </button>
-          <button class="btn btn-secondary btn-demo-login" data-email="ana@kineos.cl" data-pass="ana">
-            🌸 Ana Martinez (Clienta)
-          </button>
+        
+        <!-- Quick Demo Logins Helper -->
+        <div class="demo-logins-section">
+          <span class="demo-login-title">Ingresos Rápidos para Demo</span>
+          <div class="demo-buttons-grid">
+            <button class="btn btn-secondary btn-demo-login" data-email="admin@kineos.cl" data-pass="admin">
+              🔑 Administrador (Full Admin)
+            </button>
+            <button class="btn btn-secondary btn-demo-login" data-email="laura@kineos.cl" data-pass="laura">
+              💆 Laura Méndez (Kinesióloga)
+            </button>
+            <button class="btn btn-secondary btn-demo-login" data-email="ana@kineos.cl" data-pass="ana">
+              🌸 Ana Martínez (Clienta)
+            </button>
+          </div>
         </div>
       </div>
     </div>
