@@ -5,7 +5,7 @@ let state = {};
 let currentUser = null; // Stores logged in user { role, email, name, id }
 
 function initLocalStorageState() {
-  const saved = localStorage.getItem('TALLER_OS_DATA');
+  const saved = localStorage.getItem('AUTOCENTER_DATA');
   if (saved) {
     try {
       state = JSON.parse(saved);
@@ -15,11 +15,11 @@ function initLocalStorageState() {
       }
     } catch (e) {
       console.warn("Resetting local storage state to Chile...", e);
-      state = JSON.parse(JSON.stringify(window.TALLER_OS_DEFAULT_DATA));
+      state = JSON.parse(JSON.stringify(window.AUTOCENTER_DEFAULT_DATA));
       saveState();
     }
   } else {
-    state = JSON.parse(JSON.stringify(window.TALLER_OS_DEFAULT_DATA));
+    state = JSON.parse(JSON.stringify(window.AUTOCENTER_DEFAULT_DATA));
     saveState();
   }
 
@@ -35,7 +35,7 @@ function initLocalStorageState() {
 }
 
 function saveState() {
-  localStorage.setItem('TALLER_OS_DATA', JSON.stringify(state));
+  localStorage.setItem('AUTOCENTER_DATA', JSON.stringify(state));
 }
 
 // 2. PORTAL CONTROLLER
@@ -159,8 +159,8 @@ function applyRoleRestrictions() {
 function loginUser(email, password) {
   email = email.trim().toLowerCase();
   
-  if (email === 'admin@talleros.cl') {
-    currentUser = { role: 'admin', email: 'admin@talleros.cl', name: 'Andrea' };
+  if (email === 'admin@autocenter.cl') {
+    currentUser = { role: 'admin', email: 'admin@autocenter.cl', name: 'Andrea' };
     currentPortal = 'owner';
   } else {
     // Check employees base
@@ -1832,7 +1832,7 @@ function renderConfiguracionView(container) {
     
     subPanelHtml = `
       <h3>Sucursales / Locales</h3>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Administra los locales del centro de kinesiología.</p>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">Administra las sedes del taller mecánico.</p>
       
       <div style="margin-bottom:20px;">
         ${sedesHtml}
@@ -1842,11 +1842,11 @@ function renderConfiguracionView(container) {
         <h5>Añadir Nueva Sucursal</h5>
         <div class="form-group" style="margin-top:10px;">
           <label for="suc-nombre">Nombre de la Sucursal</label>
-          <input type="text" id="suc-nombre" class="form-control" placeholder="Ej: Sucursal Vitacura" required>
+          <input type="text" id="suc-nombre" class="form-control" placeholder="Ej: Sede Temuco - General" required>
         </div>
         <div class="form-group">
           <label for="suc-direccion">Dirección</label>
-          <input type="text" id="suc-direccion" class="form-control" placeholder="Ej: Av. Vitacura 3568" required>
+          <input type="text" id="suc-direccion" class="form-control" placeholder="Ej: Av. Alemania 0890" required>
         </div>
         <button type="submit" class="btn btn-primary" style="margin-top:8px;">Añadir Sucursal</button>
       </form>
@@ -1995,17 +1995,17 @@ function switchConfigSubTab(tab) {
 function clearDatabase() {
   state = {
     clinicInfo: {
-      name: "Taller Automotriz Cordillera",
-      tagline: "TallerOS · Premium Chile",
+      name: "AutoCenter",
+      tagline: "AutoCenter · Premium Chile",
       rif: "76.402.154-3",
       phone: "+56 9 1234 5678",
-      email: "contacto@tallercordillera.cl",
-      address: "Av. Vitacura 3568 - Vitacura, Santiago",
+      email: "contacto@autocenter.cl",
+      address: "Av. Alemania 0890 - Temuco",
       description: "Taller mecánico premium de desabolladura, pintura y detailing.",
       exchangeRate: 37940,
-      activeSede: "Sucursal Vitacura",
+      activeSede: "Sede Temuco - General",
       sedes: [
-        { id: "sede-central", name: "Sucursal Vitacura", address: "Av. Vitacura 3568 - Vitacura" }
+        { id: "sede-central", name: "Sede Temuco - General", address: "Av. Alemania 0890 - Temuco" }
       ],
       operatingHours: {
         weekday: "08:30 - 18:30",
@@ -2048,7 +2048,7 @@ function clearDatabase() {
 }
 
 function reloadDemoData() {
-  localStorage.removeItem('TALLER_OS_DATA');
+  localStorage.removeItem('AUTOCENTER_DATA');
   initLocalStorageState();
   showGlobalNotification("Datos Demo Cargados", "Se han restablecido los registros de demostración.");
   
@@ -2361,7 +2361,7 @@ function renderClientPortal(container) {
   container.innerHTML = `
     <div class="client-welcome-card">
       <div class="client-welcome-text">
-        <span>TallerOS Clientes</span>
+        <span>AutoCenter Clientes</span>
         <h2>Hola, ${client.name} ✦</h2>
         <p>La calidad es nuestra prioridad · Sigue el progreso de tu vehículo desde aquí</p>
       </div>
@@ -2621,12 +2621,12 @@ function exportTransactionToPdf(txOrId) {
   doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
   doc.setTextColor(...cMuted);
-  const footerNote = isBudget ? "Este presupuesto tiene una validez de 15 días y no constituye boleta electrónica final de pago." : "Este documento sirve como comprobante de servicio emitido digitalmente por TallerOS.";
+  const footerNote = isBudget ? "Este presupuesto tiene una validez de 15 días y no constituye boleta electrónica final de pago." : "Este documento sirve como comprobante de servicio emitido digitalmente por AutoCenter.";
   doc.text(footerNote, 14, 146);
-  doc.text("Taller Automotriz Cordillera - Av. Vitacura 3568, Vitacura, Santiago de Chile.", 14, 151);
+  doc.text("AutoCenter - Av. Alemania 0890, Temuco, Chile.", 14, 151);
 
   // Save the PDF
-  const prefix = isBudget ? "Presupuesto_TallerOS" : "Boleta_TallerOS";
+  const prefix = isBudget ? "Presupuesto_AutoCenter" : "Boleta_AutoCenter";
   const filename = `${prefix}_${folio}.pdf`;
   doc.save(filename);
   

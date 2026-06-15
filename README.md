@@ -1,8 +1,8 @@
-# TallerOS - Software de Gestión para Talleres Automotrices & Detailing 🇨🇱
+# AutoCenter - Software de Gestión para Talleres Automotrices & Detailing 🇨🇱
 
-TallerOS es una plataforma SaaS moderna, elegante y de alto rendimiento diseñada específicamente para el mercado de talleres mecánicos, desabolladura, pintura y detailing automotriz en Chile (inspirado en la gestión del taller boutique *Taller Automotriz Cordillera*). 
+AutoCenter es una plataforma SaaS moderna, elegante y de alto rendimiento diseñada específicamente para el mercado de talleres mecánicos, desabolladura, pintura y detailing automotriz en Chile (inspirado en la gestión del taller boutique *AutoCenter*). 
 
-TallerOS optimiza la gestión diaria del taller reuniendo en un solo lugar la agenda de bahías de trabajo (o elevadores), el control contable de ingresos y egresos, el cálculo automatizado de comisiones de técnicos por mano de obra (por quincenas), el historial técnico (bitácora) y registro fotográfico de vehículos, y flujos de automatización de chats mediante IA.
+AutoCenter optimiza la gestión diaria del taller reuniendo en un solo lugar la agenda de bahías de trabajo (o elevadores), el control contable de ingresos y egresos, el cálculo automatizado de comisiones de técnicos por mano de obra (por quincenas), el historial técnico (bitácora) y registro fotográfico de vehículos, y flujos de automatización de chats mediante IA.
 
 ---
 
@@ -38,23 +38,23 @@ El sistema restringe dinámicamente las herramientas y datos de acuerdo al perfi
 
 ## 🛠️ Tecnologías Utilizadas
 
-TallerOS está desarrollado bajo un enfoque *offline-first* ultraliviano, garantizando tiempos de carga inmediatos y un rendimiento óptimo sin dependencias complejas:
+AutoCenter está desarrollado bajo un enfoque *offline-first* ultraliviano, garantizando tiempos de carga inmediatos y un rendimiento óptimo sin dependencias complejas:
 * **Estructura y Vistas:** HTML5 Semántico.
 * **Estilos y Experiencia Visual:** CSS3 moderno utilizando propiedades personalizadas, gradientes suaves, efectos de glassmorphism y micro-animaciones premium.
 * **Lógica de Aplicación:** JavaScript vanilla (ES6+) estructurado de forma reactiva.
-* **Persistencia de Datos:** `localStorage` como base de datos del cliente, asegurando la resiliencia de datos local bajo la clave `TALLER_OS_DATA`.
+* **Persistencia de Datos:** `localStorage` como base de datos del cliente, asegurando la resiliencia de datos local bajo la clave `AUTOCENTER_DATA`.
 * **Entorno de Desarrollo:** Vite.
 
 ---
 
 ## 🚀 Instalación y Uso Local
 
-Para ejecutar TallerOS en tu entorno de desarrollo local, sigue estos sencillos pasos:
+Para ejecutar AutoCenter en tu entorno de desarrollo local, sigue estos sencillos pasos:
 
 1. **Clona el repositorio o descarga el código:**
    ```bash
    git clone <url-de-tu-repositorio>
-   cd talleros
+   cd autocenter
    ```
 
 2. **Instala las dependencias del proyecto:**
@@ -75,6 +75,6 @@ Para ejecutar TallerOS en tu entorno de desarrollo local, sigue estos sencillos 
 ## 🔑 Cuentas Demo de Prueba
 
 Puedes probar los diferentes portales usando estos datos de acceso rápido integrados en la pantalla de login:
-* **Jefe de Taller (Administrador):** `admin@tallerOS.cl` (contraseña: `admin` o cualquier texto)
-* **Técnico (Pintora Senior):** `laura@tallerOS.cl` (contraseña: `laura` o cualquier texto)
-* **Cliente / Dueño de Vehículo:** `ana@tallerOS.cl` (contraseña: `ana` o cualquier texto)
+* **Jefe de Taller (Administrador):** `admin@autocenter.cl` (contraseña: `admin` o cualquier texto)
+* **Técnico (Pintora Senior):** `laura@autocenter.cl` (contraseña: `laura` o cualquier texto)
+* **Cliente / Dueño de Vehículo:** `ana@autocenter.cl` (contraseña: `ana` o cualquier texto)

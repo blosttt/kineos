@@ -1,18 +1,18 @@
 // TallerOS - Seed Data (Automotive Dent & Paint Workshop Localization)
-window.TALLER_OS_DEFAULT_DATA = {
+window.AUTOCENTER_DEFAULT_DATA = {
   clinicInfo: { // Keeping the clinicInfo key internally to prevent app.js breaking, but rebranding labels
-    name: "Taller Automotriz Cordillera",
-    tagline: "TallerOS · Premium Chile",
+    name: "AutoCenter",
+    tagline: "AutoCenter · Pro Chile",
     rif: "76.402.154-3", // Workshop RUT
     phone: "+56 9 1234 5678",
-    email: "contacto@tallercordillera.cl",
-    address: "Av. Vitacura 3568 - Vitacura, Santiago",
+    email: "contacto@autocenter.cl",
+    address: "Av. Alemania 0890 - Temuco",
     description: "Taller boutique especializado en desabolladura, pintura de alta gama y detailing automotriz con tecnología de secado premium.",
     exchangeRate: 37940, // Value of 1 UF in Chilean Pesos (CLP)
-    activeSede: "Sucursal Vitacura",
+    activeSede: "Sede Temuco - General",
     sedes: [
-      { id: "sede-1", name: "Sucursal Vitacura", address: "Av. Vitacura 3568 - Vitacura" },
-      { id: "sede-2", name: "Sucursal Las Condes", address: "Av. Manquehue Sur 520 - Las Condes" }
+      { id: "sede-1", name: "Sede Temuco - General", address: "Av. Alemania 0890 - Temuco" },
+      { id: "sede-2", name: "Sede Temuco - Autos de Carrera", address: "Camino Aeródromo s/n - Temuco" }
     ],
     operatingHours: {
       weekday: "08:30 - 18:30",
@@ -25,7 +25,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "emp-laura",
       name: "Laura Méndez",
-      email: "laura@tallerOS.cl", // Login email
+      email: "laura@autocenter.cl", // Login email
       role: "Pintora Senior",
       avatar: "laura",
       paymentType: "Comisión 35%",
@@ -38,7 +38,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "emp-sofia",
       name: "Sofia Reyes",
-      email: "sofia@tallerOS.cl", // Login email
+      email: "sofia@autocenter.cl", // Login email
       role: "Desabolladora Senior",
       avatar: "sofia",
       paymentType: "Comisión 30%",
@@ -51,7 +51,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "emp-daniela",
       name: "Daniela Ruiz",
-      email: "daniela@tallerOS.cl",
+      email: "daniela@autocenter.cl",
       role: "Pintora / Preparadora",
       avatar: "daniela",
       paymentType: "Mixto - 20%",
@@ -64,7 +64,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "emp-carmen",
       name: "Carmen Vega",
-      email: "carmen@tallerOS.cl",
+      email: "carmen@autocenter.cl",
       role: "Técnica Detailing",
       avatar: "carmen",
       paymentType: "Salario fijo",
@@ -77,7 +77,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "emp-valeria",
       name: "Valeria Soto",
-      email: "valeria@tallerOS.cl",
+      email: "valeria@autocenter.cl",
       role: "Desabolladora Junior",
       avatar: "valeria",
       paymentType: "Comisión 25%",
@@ -93,7 +93,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "cli-ana",
       name: "Ana Martinez",
-      email: "ana@tallerOS.cl", // Login email
+      email: "ana@autocenter.cl", // Login email
       cedula: "12.345.678-9",
       phone: "+56 9 8765 4321",
       activePackage: "Mazda 3 (KRPW-24)", // Stores vehicle details
@@ -107,7 +107,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     {
       id: "cli-gabriela",
       name: "Gabriela Torres",
-      email: "gaby@tallerOS.cl", // Login email
+      email: "gaby@autocenter.cl", // Login email
       cedula: "15.667.122-3",
       phone: "+56 9 7654 3210",
       activePackage: "Toyota RAV4 (HGTT-12)",
@@ -265,7 +265,7 @@ window.TALLER_OS_DEFAULT_DATA = {
     { id: "tx-24", date: "2026-04-20T15:00:00", concept: "Calibración Pistolas y Filtros", client: "ServiHorno Chile", method: "Efectivo", type: "Egreso", amount: 150000 },
     { id: "tx-25", date: "2026-04-19T11:00:00", concept: "Efectivo Caja Chica Taller", client: "Fernanda Diaz", method: "Efectivo", type: "Ingreso", amount: 55000 },
     { id: "tx-26", date: "2026-04-19T13:00:00", concept: "Artículos Aseo Galpón", client: "Líder Mayorista", method: "MACH", type: "Egreso", amount: 25000 },
-    { id: "tx-27", date: "2026-04-18T16:00:00", concept: "Pago Comisiones Quincena Staff", client: "Técnicos TallerOS", method: "Transferencia", type: "Egreso", amount: 200000 }
+    { id: "tx-27", date: "2026-04-18T16:00:00", concept: "Pago Comisiones Quincena Staff", client: "Técnicos AutoCenter", method: "Transferencia", type: "Egreso", amount: 200000 }
   ],
 
   monthlyStats: [
