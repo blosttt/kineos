@@ -1,8 +1,8 @@
-# KineOS - Software de Gestión para Kinesiología y Centros de Estética 🇨🇱
+# TallerOS - Software de Gestión para Talleres Automotrices & Detailing 🇨🇱
 
-KineOS es una plataforma SaaS moderna, elegante y de alto rendimiento diseñada específicamente para el mercado de kinesiología y centros de estética integral en Chile (como *KineEstética Cordillera*). 
+TallerOS es una plataforma SaaS moderna, elegante y de alto rendimiento diseñada específicamente para el mercado de talleres mecánicos, desabolladura, pintura y detailing automotriz en Chile (inspirado en la gestión del taller boutique *Taller Automotriz Cordillera*). 
 
-KineOS optimiza la gestión diaria del centro reuniendo en un solo lugar la agenda de boxes, el control contable de ingresos y egresos, el cálculo automatizado de comisiones del personal (por quincenas), fichas clínicas de progreso de pacientes, y flujos de automatización de chats.
+TallerOS optimiza la gestión diaria del taller reuniendo en un solo lugar la agenda de bahías de trabajo (o elevadores), el control contable de ingresos y egresos, el cálculo automatizado de comisiones de técnicos por mano de obra (por quincenas), el historial técnico (bitácora) y registro fotográfico de vehículos, y flujos de automatización de chats mediante IA.
 
 ---
 
@@ -10,51 +10,51 @@ KineOS optimiza la gestión diaria del centro reuniendo en un solo lugar la agen
 
 ### 1. Control de Acceso por Roles (Seguridad)
 El sistema restringe dinámicamente las herramientas y datos de acuerdo al perfil del usuario logueado:
-* **Administrador (Owner):** Control total de finanzas, catálogo de servicios, paquetes multisesión, contratación de personal, sucursales y agenda general.
-* **Especialista (Kinesióloga / Masoterapeuta):** Acceso exclusivo a su agenda de box, bitácora de sesiones y comisiones acumuladas.
-* **Clienta:** Portal de autogestión donde realiza seguimiento a su progreso (gráfico de sesiones, bitácora del tratamiento, galería de fotos de evolución) y reserva de horas sugeridas en tiempo real.
+* **Jefe de Taller (Owner / Admin):** Control total de finanzas, catálogo de servicios automotrices, convenios/packs de aseguradoras, contratación de técnicos, sucursales y la agenda general de bahías.
+* **Técnico (Pintora / Desabollador):** Acceso exclusivo a su planificación de bahía, bitácora de trabajos de hoy y sus comisiones acumuladas.
+* **Cliente / Dueño de Vehículo:** Portal de autogestión donde realiza el seguimiento de la reparación de su auto en tiempo real (radial de avance, historial técnico, galería fotográfica del proceso) y reserva de horas sugeridas.
 
 ### 2. Localización Completa para Chile
-* **Sistema Monetario CLP:** Formateo nativo en pesos chilenos sin decimales y con separador de miles correcto (`$45.000`, `$8.420.000`).
+* **Sistema Monetario CLP:** Formateo nativo en pesos chilenos sin decimales y con separador de miles correcto (`$120.000`, `$8.420.000`).
 * **Identificación por RUT:** Formularios adaptados para validar y guardar números de RUT chileno (`12.345.678-9`).
-* **Indexación a la UF (Unidad de Fomento):** Indicador en tiempo real del valor diario de la UF, convirtiendo montos financieros y reportes automáticamente para proyecciones estables.
-* **Medios de Pago Integrados:** Soporte visual para pasarelas nacionales como **Redcompra**, **Webpay (Transbank)**, **Transferencias Electrónicas**, **MACH**, **Chek**, **Mercado Pago** y **Efectivo**.
+* **Indexación a la UF (Unidad de Fomento):** Indicador en tiempo real del valor diario de la UF, convirtiendo montos financieros y presupuestos automáticamente para proyecciones de cobros con aseguradoras chilenas.
+* **Medios de Pago Integrados:** Soporte visual para pasarelas nacionales como **Redcompra**, **Webpay (Transbank)**, **Transferencias Electrónicas**, **MACH**, **Chek**, **Fintoc** y **Efectivo**.
 
-### 3. Agenda Reactiva de Boxes
-* Grid dinámico de distribución horaria de boxes.
-* Al contratar una nueva especialista, se crea de forma inmediata y reactiva una columna dedicada para su box en la agenda diaria.
-* Clasificación de citas por colores (Sesión de paquete, Servicio individual, Evaluación o Cancelada).
+### 3. Agenda Reactiva de Bahías
+* Grid dinámico de distribución horaria de elevadores y bahías de trabajo.
+* Al contratar un nuevo técnico, se crea de forma inmediata y reactiva una columna dedicada para su bahía en la agenda diaria.
+* Clasificación de trabajos por colores (Servicio por Convenio, Servicio Particular, Presupuesto / Diagnóstico o Cancelado).
 
-### 4. Contabilidad y Liquidación de Personal
+### 4. Contabilidad y Liquidación de Técnicos
 * Libro de transacciones de ingresos y egresos en tiempo real.
-* Gráfico de composición de ingresos dinámico (servicios vs. paquetes vs. productos) calculado reactivamente.
+* Gráfico de composición de ingresos dinámico (servicios particulares vs. convenios vs. repuestos/productos) calculado reactivamente.
 * Gráfico histórico de facturación mensual.
-* Motor de conciliación y liquidación quincenal: calcula automáticamente las comisiones generadas por cada kinesióloga y registra el egreso contable en un clic.
+* Motor de conciliación y liquidación quincenal: calcula automáticamente las comisiones generadas por cada técnico por sus trabajos realizados y registra el egreso contable en un clic.
 
 ### 5. Asistente con Inteligencia Artificial (Simulado)
-* Módulo IA capaz de leer chats entrantes (WhatsApp/Instagram), sugerir horarios óptimos en la agenda de los boxes y reservar turnos de manera autónoma.
+* Módulo IA capaz de leer chats entrantes (WhatsApp/Instagram), detectar patentes, sugerir horarios óptimos en la agenda de bahías y registrar de manera autónoma las órdenes de trabajo de los clientes.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-KineOS está desarrollado bajo un enfoque *offline-first* ultraliviano, garantizando tiempos de carga inmediatos y un rendimiento óptimo sin dependencias complejas:
+TallerOS está desarrollado bajo un enfoque *offline-first* ultraliviano, garantizando tiempos de carga inmediatos y un rendimiento óptimo sin dependencias complejas:
 * **Estructura y Vistas:** HTML5 Semántico.
 * **Estilos y Experiencia Visual:** CSS3 moderno utilizando propiedades personalizadas, gradientes suaves, efectos de glassmorphism y micro-animaciones premium.
 * **Lógica de Aplicación:** JavaScript vanilla (ES6+) estructurado de forma reactiva.
-* **Persistencia de Datos:** `localStorage` como base de datos del cliente, asegurando la resiliencia de datos local.
+* **Persistencia de Datos:** `localStorage` como base de datos del cliente, asegurando la resiliencia de datos local bajo la clave `TALLER_OS_DATA`.
 * **Entorno de Desarrollo:** Vite.
 
 ---
 
 ## 🚀 Instalación y Uso Local
 
-Para ejecutar KineOS en tu entorno de desarrollo local, sigue estos sencillos pasos:
+Para ejecutar TallerOS en tu entorno de desarrollo local, sigue estos sencillos pasos:
 
 1. **Clona el repositorio o descarga el código:**
    ```bash
    git clone <url-de-tu-repositorio>
-   cd kineos
+   cd talleros
    ```
 
 2. **Instala las dependencias del proyecto:**
@@ -75,6 +75,6 @@ Para ejecutar KineOS en tu entorno de desarrollo local, sigue estos sencillos pa
 ## 🔑 Cuentas Demo de Prueba
 
 Puedes probar los diferentes portales usando estos datos de acceso rápido integrados en la pantalla de login:
-* **Owner / Administrador:** `admin@kineos.cl` (contraseña: `admin` o cualquier texto)
-* **Kinesióloga (Especialista):** `laura@kineos.cl` (contraseña: `laura` o cualquier texto)
-* **Clienta:** `ana@kineos.cl` (contraseña: `ana` o cualquier texto)
+* **Jefe de Taller (Administrador):** `admin@tallerOS.cl` (contraseña: `admin` o cualquier texto)
+* **Técnico (Pintora Senior):** `laura@tallerOS.cl` (contraseña: `laura` o cualquier texto)
+* **Cliente / Dueño de Vehículo:** `ana@tallerOS.cl` (contraseña: `ana` o cualquier texto)

@@ -5,7 +5,7 @@ let state = {};
 let currentUser = null; // Stores logged in user { role, email, name, id }
 
 function initLocalStorageState() {
-  const saved = localStorage.getItem('ESTHETIC_OS_DATA');
+  const saved = localStorage.getItem('TALLER_OS_DATA');
   if (saved) {
     try {
       state = JSON.parse(saved);
@@ -15,11 +15,11 @@ function initLocalStorageState() {
       }
     } catch (e) {
       console.warn("Resetting local storage state to Chile...", e);
-      state = JSON.parse(JSON.stringify(window.ESTHETIC_OS_DEFAULT_DATA));
+      state = JSON.parse(JSON.stringify(window.TALLER_OS_DEFAULT_DATA));
       saveState();
     }
   } else {
-    state = JSON.parse(JSON.stringify(window.ESTHETIC_OS_DEFAULT_DATA));
+    state = JSON.parse(JSON.stringify(window.TALLER_OS_DEFAULT_DATA));
     saveState();
   }
 
@@ -35,7 +35,7 @@ function initLocalStorageState() {
 }
 
 function saveState() {
-  localStorage.setItem('ESTHETIC_OS_DATA', JSON.stringify(state));
+  localStorage.setItem('TALLER_OS_DATA', JSON.stringify(state));
 }
 
 // 2. PORTAL CONTROLLER
@@ -159,8 +159,8 @@ function applyRoleRestrictions() {
 function loginUser(email, password) {
   email = email.trim().toLowerCase();
   
-  if (email === 'admin@kineos.cl') {
-    currentUser = { role: 'admin', email: 'admin@kineos.cl', name: 'Andrea' };
+  if (email === 'admin@tallerOS.cl') {
+    currentUser = { role: 'admin', email: 'admin@tallerOS.cl', name: 'Andrea' };
     currentPortal = 'owner';
   } else {
     // Check employees base
@@ -252,7 +252,7 @@ function setupGlobalDOMEvents() {
     if (isAIAssistantActive) {
       aiToggleBtn.innerText = 'Desactivar';
       aiCard.classList.add('active');
-      showGlobalNotification("Asistente IA Activado", "El asistente responderá chats y agendará citas automáticamente en WhatsApp.");
+      showGlobalNotification("Asistente IA Activado", "El asistente responderá chats y agendará trabajos automáticamente en WhatsApp.");
     } else {
       aiToggleBtn.innerText = 'Activar';
       aiCard.classList.remove('active');
@@ -353,15 +353,15 @@ function updateHeaderWidgets() {
   const userInitials = document.getElementById('user-initials');
   
   if (currentPortal === 'owner') {
-    userRole.innerText = 'Owner Estética';
-    userInitials.innerText = 'OE';
+    userRole.innerText = 'Jefe de Taller';
+    userInitials.innerText = 'JT';
   } else if (currentPortal === 'specialist') {
     const therapist = state.employees.find(e => e.id === loggedSpecialistId);
-    userRole.innerText = therapist ? therapist.name : 'Cosmetóloga';
-    userInitials.innerText = therapist ? getClientInitials(therapist.name) : 'ES';
+    userRole.innerText = therapist ? therapist.name : 'Técnico';
+    userInitials.innerText = therapist ? getClientInitials(therapist.name) : 'TC';
   } else if (currentPortal === 'client') {
     const client = state.clients.find(c => c.id === loggedClientId);
-    userRole.innerText = client ? client.name : 'Clienta';
+    userRole.innerText = client ? client.name : 'Cliente';
     userInitials.innerText = client ? getClientInitials(client.name) : 'CL';
   }
 }
@@ -491,7 +491,7 @@ function renderDashboardView(container) {
   });
 
   if (sortedToday.length === 0) {
-    upcomingTimelineHtml = '<p style="color: var(--text-muted); font-size: 0.85rem; padding: 16px 0;">No hay citas agendadas para hoy.</p>';
+    upcomingTimelineHtml = '<p style="color: var(--text-muted); font-size: 0.85rem; padding: 16px 0;">No hay trabajos programados para hoy.</p>';
   }
 
   // Reactive Monthly revenue heights computed dynamically
@@ -539,7 +539,7 @@ function renderDashboardView(container) {
       <div class="page-title-wrap">
         <span class="meta-date">Jueves 30 de Abril, 2026</span>
         <h2>Buen día, Andrea ✨</h2>
-        <p>Resumen de actividad del centro</p>
+        <p>Resumen de actividad del taller</p>
       </div>
       <div class="header-actions">
         <select class="btn btn-secondary" style="padding: 10px;">
@@ -549,7 +549,7 @@ function renderDashboardView(container) {
         </select>
         <button class="btn btn-primary" onclick="openModal('modal-cita')">
           <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" fill="currentColor"/></svg>
-          Nueva cita
+          Nueva Orden (OT)
         </button>
       </div>
     </div>
@@ -557,12 +557,12 @@ function renderDashboardView(container) {
     <!-- Stats KPI Cards -->
     <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-title">Citas Hoy</span>
+        <span class="stat-title">Trabajos Hoy</span>
         <div class="stat-value">${todayAppointments.length}</div>
-        <span class="stat-subtitle">de las cuales <strong>${evaluationsCount}</strong> evaluaciones</span>
+        <span class="stat-subtitle">de los cuales <strong>${evaluationsCount}</strong> presupuestos/diagnósticos</span>
       </div>
       <div class="stat-card">
-        <span class="stat-title">Sesiones esta semana</span>
+        <span class="stat-title">Trabajos esta semana</span>
         <div class="stat-value">73</div>
         <span class="stat-subtitle"><span class="stat-diff positive">↑ 12</span> vs semana pasada</span>
       </div>
@@ -621,7 +621,7 @@ function renderDashboardView(container) {
 
       <div class="appointments-panel">
         <div class="panel-header">
-          <span class="panel-title">Próximas citas</span>
+          <span class="panel-title">Próximos Trabajos</span>
           <a href="#agenda" class="panel-link">Ver agenda &rarr;</a>
         </div>
         <div class="timeline-list">
@@ -674,7 +674,7 @@ function renderAgendaView(container) {
           <div class="appt-service-name">${appt.service}</div>
           <div class="appt-bottom-row">
             <span class="appt-time">${appt.time} (${appt.duration} min)</span>
-            <span class="appt-badge">${appt.type === 'Sesión de paquete' ? 'PAQUETE' : appt.type === 'Evaluación' ? 'EVAL' : 'INDIV'}</span>
+            <span class="appt-badge">${appt.type === 'Sesión de paquete' ? 'CONVENIO' : appt.type === 'Evaluación' ? 'DIAGN' : 'PARTIC'}</span>
           </div>
         </div>
       `;
@@ -706,13 +706,13 @@ function renderAgendaView(container) {
   container.innerHTML = `
     <div class="page-header">
       <div class="page-title-wrap">
-        <h2>Agenda de Kinesiología</h2>
-        <p>Distribución de boxes y kinesiólogas en tiempo real</p>
+        <h2>Agenda de Bahías</h2>
+        <p>Distribución de bahías y técnicos en tiempo real</p>
       </div>
       <div class="header-actions">
         <button class="btn btn-primary" onclick="openModal('modal-cita')">
           <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" fill="currentColor"/></svg>
-          Nueva cita
+          Nueva Orden (OT)
         </button>
       </div>
     </div>
@@ -721,19 +721,19 @@ function renderAgendaView(container) {
     <div class="legend-bar">
       <div class="legend-item">
         <span class="legend-dot status-badge type-paquete" style="width:12px; height:12px; border-radius:30%; display:inline-block; border-left:3px solid var(--primary-terracotta);"></span>
-        <span>Sesión de paquete</span>
+        <span>Convenio Seguro</span>
       </div>
       <div class="legend-item">
         <span class="legend-dot status-badge type-individual" style="width:12px; height:12px; border-radius:30%; display:inline-block; border-left:3px solid #4A7BB0;"></span>
-        <span>Servicio individual</span>
+        <span>Servicio Particular</span>
       </div>
       <div class="legend-item">
         <span class="legend-dot status-badge type-evaluacion" style="width:12px; height:12px; border-radius:30%; display:inline-block; border-left:3px solid #D9943C;"></span>
-        <span>Evaluación</span>
+        <span>Presupuesto / Diagnóstico</span>
       </div>
       <div class="legend-item">
         <span class="legend-dot status-badge type-cancelada" style="width:12px; height:12px; border-radius:30%; display:inline-block; border-left:3px solid #9C9A96;"></span>
-        <span>Cancelada</span>
+        <span>Cancelado</span>
       </div>
     </div>
 
@@ -821,17 +821,17 @@ function openAppointmentDetails(apptId) {
   container.innerHTML = `
     <div style="display:flex; flex-direction:column; gap:12px;">
       <div>
-        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Clienta</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Cliente / Vehículo</span>
         <h4 style="font-size:1.15rem; font-weight:700;">${appt.clientName}</h4>
         <p style="font-size:0.85rem; color:var(--text-muted);">RUT: ${client ? client.cedula : 'N/D'} | Teléfono: ${client ? client.phone : 'N/D'}</p>
       </div>
       <div>
-        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Tratamiento</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Servicio</span>
         <h5 style="font-weight:600; font-size:1rem;">${appt.service}</h5>
         <p style="font-size:0.85rem; color:var(--text-muted);">Duración estimada: ${appt.duration} minutos | Monto sugerido: ${serviceDetail ? formatCurrency(serviceDetail.price) : 'N/D'}</p>
       </div>
       <div>
-        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Profesional asignada</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Técnico asignado</span>
         <p style="font-size:0.9rem; font-weight:500;">${specialist ? specialist.name : 'N/D'} (${specialist ? specialist.role : ''})</p>
       </div>
       <div style="display:flex; gap:16px;">
@@ -840,7 +840,7 @@ function openAppointmentDetails(apptId) {
           <p style="font-weight:600;">${appt.time}</p>
         </div>
         <div>
-          <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Tipo de cita</span>
+          <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Tipo de Servicio</span>
           <p><span class="status-badge al-dia" style="background-color: var(--primary-terracotta-light); color: var(--primary-terracotta);">${appt.type}</span></p>
         </div>
       </div>
@@ -851,6 +851,10 @@ function openAppointmentDetails(apptId) {
     deleteAppointment(activeDetailApptId);
     closeModal('modal-detalle-cita');
     handleRoute();
+  };
+
+  document.getElementById('exportar-boleta-btn').onclick = () => {
+    exportAppointmentToPdf(activeDetailApptId);
   };
 
   document.getElementById('completar-cita-btn').onclick = () => {
@@ -865,7 +869,7 @@ function openAppointmentDetails(apptId) {
 function deleteAppointment(apptId) {
   state.appointments = state.appointments.filter(a => a.id !== apptId);
   saveState();
-  showGlobalNotification("Cita Eliminada", "La cita ha sido retirada de la agenda.");
+  showGlobalNotification("Orden Eliminada", "El trabajo ha sido retirado de la agenda.");
 }
 
 function completeAppointment(apptId) {
@@ -897,7 +901,7 @@ function completeAppointment(apptId) {
   }
   
   saveState();
-  showGlobalNotification("Cita Completada", `Cita de ${appt.clientName} completada. Pago de ${formatCurrency(price)} registrado.`);
+  showGlobalNotification("Trabajo Completado", `Trabajo de ${appt.clientName} completado. Pago de ${formatCurrency(price)} registrado.`);
 }
 
 function handleAddAppointmentSubmit(e) {
@@ -926,7 +930,7 @@ function handleAddAppointmentSubmit(e) {
   state.appointments.push(newAppt);
   saveState();
   closeModal('modal-cita');
-  showGlobalNotification("Cita Agendada", `Cita registrada para ${client} el ${date} a las ${time}`);
+  showGlobalNotification("Trabajo Agendado", `Trabajo registrado para ${client} el ${date} a las ${time}`);
   handleRoute();
 }
 
@@ -1014,6 +1018,12 @@ function renderFinanzasView(container) {
         <td>${t.method}</td>
         <td><span class="status-badge ${isIncome ? 'ingreso' : 'egreso'}">${t.type}</span></td>
         <td class="cell-amount ${isIncome ? 'income' : 'expense'}">${isIncome ? '+' : '-'}${formatCurrency(t.amount)}</td>
+        <td>
+          <button class="btn btn-secondary btn-icon-tiny" onclick="exportTransactionToPdf('${t.id}')" title="Exportar PDF" style="padding: 4px 8px; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px; border-radius: 4px;">
+            <svg viewBox="0 0 24 24" width="12" height="12"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/></svg>
+            PDF
+          </button>
+        </td>
       </tr>
     `;
   });
@@ -1036,11 +1046,11 @@ function renderFinanzasView(container) {
 
   // DYNAMIC DONUT CHART COMPOSITION CALCULATION
   const singleServicesTotal = state.transactions
-    .filter(t => t.type === 'Ingreso' && !t.concept.includes("Plan") && !t.concept.includes("Paquete") && !t.concept.includes("Compra"))
+    .filter(t => t.type === 'Ingreso' && !t.concept.includes("Plan") && !t.concept.includes("Paquete") && !t.concept.includes("Convenio") && !t.concept.includes("Pack") && !t.concept.includes("Compra"))
     .reduce((sum, t) => sum + t.amount, 0) || 3540000;
   
   const packagesTotal = state.transactions
-    .filter(t => t.type === 'Ingreso' && (t.concept.includes("Plan") || t.concept.includes("Paquete")))
+    .filter(t => t.type === 'Ingreso' && (t.concept.includes("Plan") || t.concept.includes("Paquete") || t.concept.includes("Convenio") || t.concept.includes("Pack")))
     .reduce((sum, t) => sum + t.amount, 0) || 2520000;
 
   const productsTotal = state.transactions
@@ -1064,7 +1074,7 @@ function renderFinanzasView(container) {
     <div class="page-header">
       <div class="page-title-wrap">
         <h2>Finanzas</h2>
-        <p>Ingresos, egresos y rentabilidad del centro (Pesos Chilenos)</p>
+        <p>Ingresos, egresos y rentabilidad del taller (Pesos Chilenos)</p>
       </div>
       <div class="header-actions">
         <span class="rate-badge" style="cursor:pointer;" onclick="openModal('modal-tasa')">
@@ -1137,21 +1147,21 @@ function renderFinanzasView(container) {
           <div class="donut-legend-item">
             <div class="legend-left">
               <span class="legend-square servicios"></span>
-              <span>Servicios sueltos</span>
+              <span>Servicios particulares</span>
             </div>
             <div class="legend-right">${srvPct}% <span>${formatCurrency(singleServicesTotal)}</span></div>
           </div>
           <div class="donut-legend-item">
             <div class="legend-left">
               <span class="legend-square paquetes"></span>
-              <span>Paquetes</span>
+              <span>Packs / Convenios</span>
             </div>
             <div class="legend-right">${pkgPct}% <span>${formatCurrency(packagesTotal)}</span></div>
           </div>
           <div class="donut-legend-item">
             <div class="legend-left">
               <span class="legend-square productos"></span>
-              <span>Productos</span>
+              <span>Insumos / Repuestos</span>
             </div>
             <div class="legend-right">${prodPct}% <span>${formatCurrency(productsTotal)}</span></div>
           </div>
@@ -1198,6 +1208,7 @@ function renderFinanzasView(container) {
               <th>Método</th>
               <th>Tipo</th>
               <th>Monto</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -1309,7 +1320,7 @@ function renderClientesView(container) {
         <span class="stat-subtitle"><span class="stat-diff positive">↑ 3</span> este mes</span>
       </div>
       <div class="stat-card">
-        <span class="stat-title">Con Paquete Activo</span>
+        <span class="stat-title">Con Convenio Activo</span>
         <div class="stat-value">${withPackageCount}</div>
         <span class="stat-subtitle">representa el ${(withPackageCount/activeCount*100).toFixed(0)}% del total</span>
       </div>
@@ -1336,7 +1347,7 @@ function renderClientesView(container) {
               <th>Cliente</th>
               <th>RUT</th>
               <th>Teléfono</th>
-              <th>Paquete Activo</th>
+              <th>Vehículo / Convenio</th>
               <th style="text-align:center;">Visitas</th>
               <th>Última Visita</th>
               <th>Estado</th>
@@ -1485,15 +1496,15 @@ function renderEmpleadosView(container) {
   container.innerHTML = `
     <div class="page-header">
       <div class="page-title-wrap">
-        <h2>Kinesiólogas & Esteticistas</h2>
-        <p>Gestión de equipo, comisiones y desempeño</p>
+        <h2>Mecánicos & Técnicos</h2>
+        <p>Gestión de mecánicos, comisiones y desempeño</p>
       </div>
       <div class="header-actions">
         <button class="btn btn-secondary" onclick="openLiquidarModal()">
           Liquidar Quincena
         </button>
         <button class="btn btn-primary" onclick="openModal('modal-empleado')">
-          + Nuevo profesional
+          + Nuevo técnico
         </button>
       </div>
     </div>
@@ -1503,7 +1514,7 @@ function renderEmpleadosView(container) {
       <div class="stat-card">
         <span class="stat-title">Total Staff</span>
         <div class="stat-value">${employees.length}</div>
-        <span class="stat-subtitle">Especialistas activas en boxes</span>
+        <span class="stat-subtitle">Técnicos activos en bahías</span>
       </div>
       <div class="stat-card">
         <span class="stat-title">Comisiones Pendientes</span>
@@ -1511,14 +1522,14 @@ function renderEmpleadosView(container) {
         <span class="stat-subtitle">acumulado quincena en curso</span>
       </div>
       <div class="stat-card">
-        <span class="stat-title">Sesiones - Este mes</span>
+        <span class="stat-title">Trabajos - Este mes</span>
         <div class="stat-value">${employees.reduce((s, e) => s + e.sessionsCount, 0)}</div>
         <span class="stat-subtitle"><span class="stat-diff positive">↑ +38</span> vs mes anterior</span>
       </div>
       <div class="stat-card">
         <span class="stat-title">Ocupación Promedio</span>
         <div class="stat-value">52%</div>
-        <span class="stat-subtitle"><span class="stat-diff positive">↑ +6%</span> optimización de box</span>
+        <span class="stat-subtitle"><span class="stat-diff positive">↑ +6%</span> optimización de bahías</span>
       </div>
     </div>
 
@@ -1532,10 +1543,10 @@ function renderEmpleadosView(container) {
           <table class="custom-table">
             <thead>
               <tr>
-                <th>Profesional</th>
+                <th>Técnico</th>
                 <th>Tipo de Pago</th>
                 <th>Carga de hoy</th>
-                <th style="text-align:center;">Sesiones</th>
+                <th style="text-align:center;">Trabajos</th>
                 <th>Comisión</th>
               </tr>
             </thead>
@@ -1984,21 +1995,21 @@ function switchConfigSubTab(tab) {
 function clearDatabase() {
   state = {
     clinicInfo: {
-      name: "Mi Centro de Kinesiología y Estética",
-      tagline: "KineOS · Pro Chile",
-      rif: "76.000.000-0",
-      phone: "+56 9 0000 0000",
-      email: "contacto@micentro.cl",
-      address: "Santiago, Chile",
-      description: "Centro de kinesiología estética integral.",
+      name: "Taller Automotriz Cordillera",
+      tagline: "TallerOS · Premium Chile",
+      rif: "76.402.154-3",
+      phone: "+56 9 1234 5678",
+      email: "contacto@tallercordillera.cl",
+      address: "Av. Vitacura 3568 - Vitacura, Santiago",
+      description: "Taller mecánico premium de desabolladura, pintura y detailing.",
       exchangeRate: 37940,
-      activeSede: "Sucursal Central",
+      activeSede: "Sucursal Vitacura",
       sedes: [
-        { id: "sede-central", name: "Sucursal Central", address: "Dirección Central" }
+        { id: "sede-central", name: "Sucursal Vitacura", address: "Av. Vitacura 3568 - Vitacura" }
       ],
       operatingHours: {
-        weekday: "08:00 - 18:00",
-        saturday: "09:00 - 16:00",
+        weekday: "08:30 - 18:30",
+        saturday: "09:00 - 14:00",
         sunday: "Cerrado"
       }
     },
@@ -2037,7 +2048,7 @@ function clearDatabase() {
 }
 
 function reloadDemoData() {
-  localStorage.removeItem('ESTHETIC_OS_DATA');
+  localStorage.removeItem('TALLER_OS_DATA');
   initLocalStorageState();
   showGlobalNotification("Datos Demo Cargados", "Se han restablecido los registros de demostración.");
   
@@ -2199,7 +2210,7 @@ function simulateCustomerBookingMessage() {
   const now = new Date();
   const timeStr = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
 
-  const clientText = "Hola! Quisiera agendar un Masaje Relajante con Daniela Ruiz para hoy a las 3:00 PM porfa.";
+  const clientText = "Hola! Quisiera agendar una Pintura de Puerta con Daniela Ruiz para hoy a las 3:00 PM porfa.";
   thread.history.push({
     sender: "customer",
     text: clientText,
@@ -2214,7 +2225,7 @@ function simulateCustomerBookingMessage() {
       const now2 = new Date();
       const timeStr2 = `${now2.getHours().toString().padStart(2,'0')}:${now2.getMinutes().toString().padStart(2,'0')}`;
       
-      const aiReply = `¡Hola ${thread.customerName}! Claro que sí, con mucho gusto. He verificado la agenda de la kinesióloga Daniela Ruiz y tiene disponible hoy a las 3:00 PM. Acabo de agendar tu cita para Masaje Relajante en el box asignado. Te llegará la confirmación al correo.`;
+      const aiReply = `¡Hola ${thread.customerName}! Claro que sí, con mucho gusto. He verificado la agenda de la técnica Daniela Ruiz y tiene disponible hoy a las 3:00 PM. Acabo de agendar el ingreso de tu vehículo para Pintura de Puerta en la bahía de trabajo. Te llegará la confirmación al correo.`;
       
       thread.history.push({
         sender: "ai",
@@ -2226,7 +2237,7 @@ function simulateCustomerBookingMessage() {
         id: `appt-ai-${Date.now()}`,
         clientName: thread.customerName,
         specialistId: "emp-daniela",
-        service: "Masaje Relajante",
+        service: "Pintura de Puerta",
         date: "2026-04-30",
         time: "15:00",
         duration: 60,
@@ -2236,7 +2247,7 @@ function simulateCustomerBookingMessage() {
       state.appointments.push(newAppt);
       saveState();
       
-      showGlobalNotification("AI Reservó Cita", `El Asistente agendó a ${thread.customerName} con Daniela Ruiz hoy a las 15:00`);
+      showGlobalNotification("AI Reservó Trabajo", `El Asistente agendó a ${thread.customerName} con Daniela Ruiz hoy a las 15:00`);
       handleRoute();
     }, 1500);
   }
@@ -2273,23 +2284,23 @@ function renderSpecialistPortal(container) {
   });
 
   if (appointments.length === 0) {
-    apptsHtml = '<p style="color:var(--text-muted); padding:16px 0;">No tienes citas programadas para hoy.</p>';
+    apptsHtml = '<p style="color:var(--text-muted); padding:16px 0;">No tienes trabajos programados para hoy.</p>';
   }
 
   container.innerHTML = `
     <div class="specialist-header-card">
       <div class="specialist-welcome">
-        <span>Gestión de Box</span>
+        <span>Gestión de Bahías</span>
         <h2>Hola de nuevo, ${specialist.name} 👋</h2>
-        <p>Perfil de trabajo · Especialista: ${specialist.role}</p>
+        <p>Perfil de trabajo · Técnico: ${specialist.role}</p>
       </div>
     </div>
 
     <div class="specialist-stats-row">
       <div class="specialist-stat-card">
-        <div class="specialist-stat-icon">💆</div>
+        <div class="specialist-stat-icon">🔧</div>
         <div class="specialist-stat-details">
-          <h5>Sesiones realizadas</h5>
+          <h5>Trabajos realizados</h5>
           <p>${totalSessionsThisMonth}</p>
         </div>
       </div>
@@ -2310,7 +2321,7 @@ function renderSpecialistPortal(container) {
     </div>
 
     <div class="specialist-queue-card">
-      <div class="specialist-queue-header">Citas asignadas para hoy en boxes</div>
+      <div class="specialist-queue-header">Trabajos asignados para hoy en bahías</div>
       <div class="queue-list">
         ${apptsHtml}
       </div>
@@ -2338,29 +2349,29 @@ function renderClientPortal(container) {
   let photosHtml = '';
   photosHtml += `
     <div class="gallery-photo-card" style="width:140px; height:140px;">
-      <div style="font-size:2rem;">🌸</div>
-      <span>Sesión 1 (Antes)</span>
+      <div style="font-size:2rem;">🚗</div>
+      <span>Ingreso (Daño inicial)</span>
     </div>
     <div class="gallery-photo-card" style="width:140px; height:140px;">
       <div style="font-size:2rem;">✨</div>
-      <span>Sesión 5 (Progreso)</span>
+      <span>Progreso (Pintura/Horno)</span>
     </div>
   `;
 
   container.innerHTML = `
     <div class="client-welcome-card">
       <div class="client-welcome-text">
-        <span>KineOS Clientes</span>
+        <span>TallerOS Clientes</span>
         <h2>Hola, ${client.name} ✦</h2>
-        <p>Tu bienestar es nuestra prioridad · Sigue tu plan corporal y facial desde aquí</p>
+        <p>La calidad es nuestra prioridad · Sigue el progreso de tu vehículo desde aquí</p>
       </div>
-      <div style="font-size: 2.5rem;">🌸</div>
+      <div style="font-size: 2.5rem;">🚗</div>
     </div>
 
     <div class="client-grid">
       <div class="client-progress-card">
         <div class="progress-header">
-          <span class="progress-title">Mi Progreso de Tratamiento</span>
+          <span class="progress-title">Progreso de Reparación del Vehículo</span>
           <span class="status-badge al-dia">${client.activePackage}</span>
         </div>
         
@@ -2368,21 +2379,21 @@ function renderClientPortal(container) {
           <div class="sessions-radial-wrapper">
             <div class="sessions-radial-center">
               <span class="radial-number">5 / 8</span>
-              <span class="radial-desc">Sesiones</span>
+              <span class="radial-desc">Etapas</span>
             </div>
           </div>
           <div>
-            <h5 style="font-weight:700;">Sesiones realizadas</h5>
-            <p style="font-size:0.85rem; color:var(--text-muted);">Te quedan 3 sesiones pendientes en este plan.</p>
+            <h5>Trabajos realizados</h5>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Sigue el progreso de tu vehículo paso a paso.</p>
           </div>
         </div>
 
         <div class="progress-notes">
-          <strong>Bitácora de Kinesiología:</strong><br>
-          ${client.progressNotes || 'Tu tratamiento evoluciona de manera excelente. Mantén las recomendaciones diarias.'}
+          <strong>Historial Técnico del Vehículo:</strong><br>
+          ${client.progressNotes || 'Tu vehículo evoluciona de manera excelente. Mantén las recomendaciones diarias.'}
         </div>
 
-        <h5 style="font-weight:700; margin-top:24px; margin-bottom:12px;">Galería de Tratamiento</h5>
+        <h5 style="font-weight:700; margin-top:24px; margin-bottom:12px;">Registro Fotográfico</h5>
         <div class="gallery-wrapper">
           ${photosHtml}
         </div>
@@ -2390,15 +2401,15 @@ function renderClientPortal(container) {
 
       <div class="client-progress-card" style="display:flex; flex-direction:column; justify-content:space-between;">
         <div>
-          <span class="progress-title" style="display:block; margin-bottom:12px;">Agendar Siguiente Sesión</span>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Reserva tu box en los horarios sugeridos por el sistema.</p>
+          <span class="progress-title" style="display:block; margin-bottom:12px;">Agendar Siguiente Servicio</span>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Reserva tu bahía en los horarios sugeridos.</p>
           
           <div class="form-group">
-            <label>Kinesióloga de preferencia</label>
+            <label>Técnico de preferencia</label>
             <select class="form-control" id="cli-book-spec">
-              <option value="emp-laura">Laura Méndez (Cosmetóloga Senior)</option>
-              <option value="emp-sofia">Sofia Reyes (Kinesióloga Estética)</option>
-              <option value="emp-daniela">Daniela Ruiz (Kinesióloga)</option>
+              <option value="emp-laura">Laura Méndez (Pintora Senior)</option>
+              <option value="emp-sofia">Sofia Reyes (Desabolladora Senior)</option>
+              <option value="emp-daniela">Daniela Ruiz (Pintora / Preparadora)</option>
             </select>
           </div>
 
@@ -2420,7 +2431,7 @@ function renderClientPortal(container) {
         </div>
 
         <button class="btn btn-primary" style="width:100%; justify-content:center; padding:12px;" onclick="handleClientSelfBooking()">
-          Confirmar Reserva Cita
+          Confirmar Reserva de Trabajo
         </button>
       </div>
     </div>
@@ -2441,7 +2452,7 @@ function handleClientSelfBooking() {
     id: `appt-cli-${Date.now()}`,
     clientName: client.name,
     specialistId: specId,
-    service: "Masaje Reductor",
+    service: "Pintura de Parachoques",
     date,
     time,
     duration: 90,
@@ -2453,7 +2464,7 @@ function handleClientSelfBooking() {
   client.lastVisit = "Hoy";
   saveState();
 
-  showGlobalNotification("Cita Agendada", `Has agendado tu cita de Plan Verano para el ${date} a las ${timeVal}`);
+  showGlobalNotification("Trabajo Agendado", `Has agendado tu servicio de Pintura de Parachoques para el ${date} a las ${timeVal}`);
   switchPortal('owner');
 }
 
@@ -2470,4 +2481,178 @@ function closeModal(modalId) {
   if (overlay) {
     overlay.classList.remove('show');
   }
+}
+
+// 10. PDF INVOICE EXPORTER SYSTEM
+function exportTransactionToPdf(txOrId) {
+  let tx;
+  if (typeof txOrId === 'string') {
+    tx = state.transactions.find(t => t.id === txOrId);
+  } else {
+    tx = txOrId;
+  }
+
+  if (!tx) {
+    alert("Transacción no encontrada.");
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4"
+  });
+
+  const client = state.clients.find(c => c.name.trim().toLowerCase() === tx.client.trim().toLowerCase());
+  const isIncome = tx.type === 'Ingreso';
+  const isBudget = tx.id.startsWith("appt");
+
+  // Accent Colors: Forest Green (#2A4D34) & Gold (#C5A073) & Text (#1C2620)
+  const cGreen = [42, 77, 52];
+  const cGold = [197, 160, 115];
+  const cText = [28, 38, 32];
+  const cMuted = [91, 107, 96];
+
+  // Top header green stripe
+  doc.setFillColor(...cGreen);
+  doc.rect(14, 15, 182, 3, "F");
+
+  // Workshop Branding info
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(18);
+  doc.setTextColor(...cGreen);
+  doc.text(state.clinicInfo.name, 14, 28);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(...cMuted);
+  doc.text(`RUT: ${state.clinicInfo.rif}`, 14, 34);
+  doc.text(state.clinicInfo.address, 14, 39);
+  doc.text(`Fono: ${state.clinicInfo.phone} | Email: ${state.clinicInfo.email}`, 14, 44);
+
+  // Document Title & Folio
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(12);
+  doc.setTextColor(...cText);
+  const docTitle = isBudget ? "PRESUPUESTO / ORDEN DE TRABAJO" : (isIncome ? "BOLETA DE SERVICIO" : "COMPROBANTE DE EGRESO");
+  doc.text(docTitle, 120, 28);
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.setTextColor(...cGold);
+  const folioLabel = isBudget ? "COTIZACIÓN" : "FOLIO";
+  const folio = tx.id.replace("tx-", "").replace("appt-cli-", "").replace("appt-", "").substring(0, 8).toUpperCase();
+  doc.text(`${folioLabel}: ${folio}`, 120, 34);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(...cMuted);
+  const dateObj = new Date(tx.date);
+  const formattedDate = dateObj.toLocaleDateString('es-CL') + " " + dateObj.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+  doc.text(`Fecha: ${formattedDate}`, 120, 39);
+
+  // Divider line
+  doc.setDrawColor(213, 221, 214);
+  doc.line(14, 48, 196, 48);
+
+  // Client Details
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.setTextColor(...cText);
+  doc.text(isIncome ? "DATOS DEL RECEPTOR / CLIENTE" : "DATOS DEL DESTINATARIO / PROVEEDOR", 14, 55);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.text(`Nombre/Razón Social: ${client ? client.name : tx.client}`, 14, 62);
+  doc.text(`RUT: ${client ? client.cedula : "N/D"}`, 14, 67);
+  doc.text(`Teléfono: ${client ? client.phone : "N/D"}`, 14, 72);
+  doc.text(`Email: ${client ? client.email : "N/D"}`, 14, 77);
+
+  // Service details table header
+  doc.setFillColor(244, 246, 244);
+  doc.rect(14, 84, 182, 8, "F");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.setTextColor(...cText);
+  doc.text("Detalle de Concepto / Servicio", 18, 89);
+  doc.text(isBudget ? "Estado" : "Método Pago", 110, 89);
+  doc.text("Total (CLP)", 155, 89);
+
+  // Table row
+  doc.setFont("helvetica", "normal");
+  doc.text(tx.concept, 18, 99);
+  doc.text(isBudget ? "Pendiente / En Curso" : tx.method, 110, 99);
+  doc.text(formatCurrency(tx.amount), 155, 99);
+
+  // Separation line
+  doc.line(14, 105, 196, 105);
+
+  // Calculations
+  const total = tx.amount;
+  const neto = Math.round(total / 1.19);
+  const iva = total - neto;
+
+  // Totals display
+  const rightColX = 130;
+  const valColX = 165;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(...cMuted);
+  
+  doc.text("Neto afecto IVA:", rightColX, 113);
+  doc.text(formatCurrency(neto), valColX, 113);
+  
+  doc.text("IVA (19%):", rightColX, 119);
+  doc.text(formatCurrency(iva), valColX, 119);
+
+  doc.line(130, 123, 196, 123);
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.setTextColor(...cGreen);
+  doc.text(isBudget ? "ESTIMADO TOTAL:" : "TOTAL:", rightColX, 129);
+  doc.text(formatCurrency(total), valColX, 129);
+
+  // Footer note
+  doc.setDrawColor(213, 221, 214);
+  doc.line(14, 140, 196, 140);
+  
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(8);
+  doc.setTextColor(...cMuted);
+  const footerNote = isBudget ? "Este presupuesto tiene una validez de 15 días y no constituye boleta electrónica final de pago." : "Este documento sirve como comprobante de servicio emitido digitalmente por TallerOS.";
+  doc.text(footerNote, 14, 146);
+  doc.text("Taller Automotriz Cordillera - Av. Vitacura 3568, Vitacura, Santiago de Chile.", 14, 151);
+
+  // Save the PDF
+  const prefix = isBudget ? "Presupuesto_TallerOS" : "Boleta_TallerOS";
+  const filename = `${prefix}_${folio}.pdf`;
+  doc.save(filename);
+  
+  const notificationTitle = isBudget ? "Presupuesto Exportado" : "PDF Exportado";
+  const notificationMsg = isBudget ? `Presupuesto ${folio} descargado con éxito.` : `Factura/Boleta ${folio} descargada con éxito.`;
+  showGlobalNotification(notificationTitle, notificationMsg);
+}
+
+function exportAppointmentToPdf(apptId) {
+  const appt = state.appointments.find(a => a.id === apptId);
+  if (!appt) {
+    alert("Orden de trabajo no encontrada.");
+    return;
+  }
+  const serviceDetail = state.services.find(s => s.name === appt.service);
+  const price = serviceDetail ? serviceDetail.price : 35000;
+  
+  const mockTx = {
+    id: appt.id,
+    date: appt.date + "T" + appt.time + ":00",
+    concept: `Orden: ${appt.service}`,
+    client: appt.clientName,
+    method: "Presupuesto",
+    type: "Ingreso",
+    amount: price
+  };
+  
+  exportTransactionToPdf(mockTx);
 }

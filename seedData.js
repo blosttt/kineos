@@ -1,13 +1,13 @@
-// KineOS - Seed Data (Chile Localization with Auth support)
-window.ESTHETIC_OS_DEFAULT_DATA = {
-  clinicInfo: {
-    name: "KineEstética Cordillera",
-    tagline: "KineOS · Pro Chile",
-    rif: "76.402.154-3",
+// TallerOS - Seed Data (Automotive Dent & Paint Workshop Localization)
+window.TALLER_OS_DEFAULT_DATA = {
+  clinicInfo: { // Keeping the clinicInfo key internally to prevent app.js breaking, but rebranding labels
+    name: "Taller Automotriz Cordillera",
+    tagline: "TallerOS · Premium Chile",
+    rif: "76.402.154-3", // Workshop RUT
     phone: "+56 9 1234 5678",
-    email: "contacto@kinecordillera.cl",
-    address: "Av. Vitacura 3568, Piso 4 - Vitacura, Santiago",
-    description: "Centro de kinesiología estética integral especializado en tratamientos corporales y faciales con tecnología avanzada.",
+    email: "contacto@tallercordillera.cl",
+    address: "Av. Vitacura 3568 - Vitacura, Santiago",
+    description: "Taller boutique especializado en desabolladura, pintura de alta gama y detailing automotriz con tecnología de secado premium.",
     exchangeRate: 37940, // Value of 1 UF in Chilean Pesos (CLP)
     activeSede: "Sucursal Vitacura",
     sedes: [
@@ -15,8 +15,8 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       { id: "sede-2", name: "Sucursal Las Condes", address: "Av. Manquehue Sur 520 - Las Condes" }
     ],
     operatingHours: {
-      weekday: "08:00 - 18:00",
-      saturday: "09:00 - 16:00",
+      weekday: "08:30 - 18:30",
+      saturday: "09:00 - 14:00",
       sunday: "Cerrado"
     }
   },
@@ -25,65 +25,65 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     {
       id: "emp-laura",
       name: "Laura Méndez",
-      email: "laura@kineos.cl", // Login email
-      role: "Cosmetóloga Senior",
+      email: "laura@tallerOS.cl", // Login email
+      role: "Pintora Senior",
       avatar: "laura",
       paymentType: "Comisión 35%",
       commissionRate: 0.35,
       loadPercent: 75,
-      sessionsCount: 124,
+      sessionsCount: 12,
       commissionEarned: 1701000,
       totalEarnings: 4860000
     },
     {
       id: "emp-sofia",
       name: "Sofia Reyes",
-      email: "sofia@kineos.cl", // Login email
-      role: "Kinesióloga Estética",
+      email: "sofia@tallerOS.cl", // Login email
+      role: "Desabolladora Senior",
       avatar: "sofia",
       paymentType: "Comisión 30%",
       commissionRate: 0.30,
       loadPercent: 58,
-      sessionsCount: 78,
+      sessionsCount: 9,
       commissionEarned: 882000,
       totalEarnings: 2940000
     },
     {
       id: "emp-daniela",
       name: "Daniela Ruiz",
-      email: "daniela@kineos.cl",
-      role: "Kinesióloga",
+      email: "daniela@tallerOS.cl",
+      role: "Pintora / Preparadora",
       avatar: "daniela",
       paymentType: "Mixto - 20%",
       commissionRate: 0.20,
       loadPercent: 68,
-      sessionsCount: 96,
+      sessionsCount: 11,
       commissionEarned: 972000,
       totalEarnings: 3360000
     },
     {
       id: "emp-carmen",
       name: "Carmen Vega",
-      email: "carmen@kineos.cl",
-      role: "Kinesióloga",
+      email: "carmen@tallerOS.cl",
+      role: "Técnica Detailing",
       avatar: "carmen",
       paymentType: "Salario fijo",
       commissionRate: 0.00,
       loadPercent: 38,
-      sessionsCount: 52,
+      sessionsCount: 6,
       commissionEarned: 488000,
       totalEarnings: 1820000
     },
     {
       id: "emp-valeria",
       name: "Valeria Soto",
-      email: "valeria@kineos.cl",
-      role: "Masoterapeuta",
+      email: "valeria@tallerOS.cl",
+      role: "Desabolladora Junior",
       avatar: "valeria",
       paymentType: "Comisión 25%",
       commissionRate: 0.25,
       loadPercent: 45,
-      sessionsCount: 71,
+      sessionsCount: 8,
       commissionEarned: 405000,
       totalEarnings: 1620000
     }
@@ -93,30 +93,30 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     {
       id: "cli-ana",
       name: "Ana Martinez",
-      email: "ana@kineos.cl", // Login email
+      email: "ana@tallerOS.cl", // Login email
       cedula: "12.345.678-9",
       phone: "+56 9 8765 4321",
-      activePackage: "Plan Verano",
-      visits: 14,
+      activePackage: "Mazda 3 (KRPW-24)", // Stores vehicle details
+      visits: 4,
       lastVisit: "Hoy",
       status: "Al día",
       debt: 0,
-      progressPhotos: ["progress_ana_1.jpg", "progress_ana_2.jpg", "progress_ana_3.jpg"],
-      progressNotes: "Drenaje en abdomen muestra excelente respuesta. Reducción de 3cm de circunferencia desde la sesión 1."
+      progressPhotos: ["car_progress_1.jpg", "car_progress_2.jpg", "car_progress_3.jpg"],
+      progressNotes: "Desabolladura de tapabarro delantero y puerta completada. Aplicada base y primera mano de color. Secando laca en horno."
     },
     {
       id: "cli-gabriela",
       name: "Gabriela Torres",
-      email: "gaby@kineos.cl", // Login email
+      email: "gaby@tallerOS.cl", // Login email
       cedula: "15.667.122-3",
       phone: "+56 9 7654 3210",
-      activePackage: "Reducción Total",
-      visits: 8,
+      activePackage: "Toyota RAV4 (HGTT-12)",
+      visits: 2,
       lastVisit: "Hoy",
       status: "Debe $120.000",
       debt: 120000,
-      progressPhotos: ["progress_gaby_1.jpg", "progress_gaby_2.jpg"],
-      progressNotes: "Radiofrecuencia facial. Piel visiblemente más tensa en contorno mandibular. Pendiente pago de cuota final."
+      progressPhotos: ["car_gaby_1.jpg", "car_gaby_2.jpg"],
+      progressNotes: "Parachoques trasero desmontado para soldadura de fisura. Pintado en cabina finalizado. Pendiente pulido de integración."
     },
     {
       id: "cli-fernanda",
@@ -124,13 +124,13 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       email: "fer.diaz@out.com",
       cedula: "18.221.776-K",
       phone: "+56 9 6543 2109",
-      activePackage: "Paquete Cordillera Beauty",
-      visits: 22,
+      activePackage: "Subaru XV (PPLD-88)",
+      visits: 6,
       lastVisit: "Hoy",
       status: "Al día",
       debt: 0,
-      progressPhotos: ["progress_fer_1.jpg"],
-      progressNotes: "Depilación y masajes relajantes. Evolución de elasticidad muscular positiva. Sesiones al día."
+      progressPhotos: ["car_fer_1.jpg"],
+      progressNotes: "Tratamiento cerámico de pintura de 3 capas completado. Curado UV en curso para sellado de brillo."
     },
     {
       id: "cli-valentina",
@@ -138,13 +138,13 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       email: "vcruz@gmail.com",
       cedula: "20.114.998-2",
       phone: "+56 9 5432 1098",
-      activePackage: "Plan Verano",
-      visits: 6,
+      activePackage: "Chevrolet Sail (LDDS-55)",
+      visits: 1,
       lastVisit: "Hoy",
       status: "Debe $40.000",
       debt: 40000,
       progressPhotos: [],
-      progressNotes: "Tratamiento de drenaje post-operatorio. Reducción progresiva de edema."
+      progressNotes: "Inspección de daños para presupuesto de aseguradora Liberty completada. Esperando orden de trabajo emitida."
     },
     {
       id: "cli-isabella",
@@ -152,13 +152,13 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       email: "inunez@gmail.com",
       cedula: "19.776.123-5",
       phone: "+56 9 4321 0987",
-      activePackage: "Facial Glow x4",
-      visits: 11,
+      activePackage: "Ford Ranger (WTFF-99)",
+      visits: 3,
       lastVisit: "Hoy",
       status: "Al día",
       debt: 0,
       progressPhotos: [],
-      progressNotes: "Microdermoabrasión facial. Piel revitalizada, poros reducidos. Recomendar hidratación intensa."
+      progressNotes: "Pintado de portalón trasero completado. Desengrasado, lijado e imprimación listos. Entregado a control de calidad."
     },
     {
       id: "cli-andrea",
@@ -166,13 +166,13 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       email: "asilva@gmail.com",
       cedula: "16.554.221-K",
       phone: "+56 9 3210 9876",
-      activePackage: "Plan Verano",
-      visits: 9,
+      activePackage: "Suzuki Swift (JSDF-32)",
+      visits: 3,
       lastVisit: "Hoy",
       status: "Al día",
       debt: 0,
       progressPhotos: [],
-      progressNotes: "Tratamientos de tonificación. Mayor definición en cuádriceps y abdomen."
+      progressNotes: "Pulido de carrocería en 3 pasos finalizado. Eliminados micro-rayones y hologramas. Lavado e hidrofugado listos."
     },
     {
       id: "cli-sandra",
@@ -180,13 +180,13 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       email: "sortega@gmail.com",
       cedula: "14.998.776-7",
       phone: "+56 9 2109 8765",
-      activePackage: "Sin paquete",
-      visits: 3,
+      activePackage: "Jeep Cherokee (LKDS-77)",
+      visits: 1,
       lastVisit: "Hoy",
       status: "Debe $80.000",
       debt: 80000,
       progressPhotos: [],
-      progressNotes: "Evaluación corporal inicial completada. Recomendado paquete de 8 sesiones."
+      progressNotes: "Presupuesto por golpe lateral derecho aprobado. Esperando ingreso del vehículo al taller el próximo lunes."
     }
   ],
 
@@ -194,26 +194,26 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     {
       id: "tx-1",
       date: "2026-04-30T10:24:00",
-      concept: "Drenaje Linfático",
+      concept: "Pintura Parachoques Delantero",
       client: "Gabriela Torres",
       method: "Transferencia",
       type: "Ingreso",
-      amount: 45000
+      amount: 120000
     },
     {
       id: "tx-2",
       date: "2026-04-30T09:50:00",
-      concept: "Plan Verano (8 ses.)",
+      concept: "Convenio Pintura Lateral (4 pz)",
       client: "Andrea Silva",
       method: "Transferencia",
       type: "Ingreso",
-      amount: 280000
+      amount: 450000
     },
     {
       id: "tx-3",
       date: "2026-04-30T09:12:00",
-      concept: "Compra de insumos",
-      client: "KineSupply Chile",
+      concept: "Compra Pintura Sherwin-Williams",
+      client: "Sherwin Auto Chile",
       method: "Webpay",
       type: "Egreso",
       amount: 420000
@@ -221,16 +221,16 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     {
       id: "tx-4",
       date: "2026-04-29T18:30:00",
-      concept: "Microdermoabrasión",
+      concept: "Desabolladura Guardabarros",
       client: "Isabella Núñez",
       method: "Efectivo",
       type: "Ingreso",
-      amount: 55000
+      amount: 110000
     },
     {
       id: "tx-5",
       date: "2026-04-29T16:00:00",
-      concept: "Cuenta de Luz Enel",
+      concept: "Cuenta de Luz Enel Taller",
       client: "Enel Distribución",
       method: "Transferencia",
       type: "Egreso",
@@ -239,33 +239,33 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     {
       id: "tx-6",
       date: "2026-04-29T14:45:00",
-      concept: "Paquete Cordillera Beauty",
+      concept: "Pintura Completa Horno (Siniestro)",
       client: "Fernanda Diaz",
       method: "Transferencia",
       type: "Ingreso",
       amount: 1400000
     },
-    { id: "tx-7", date: "2026-04-28T11:00:00", concept: "Abono Plan Reductor", client: "Ana Martinez", method: "Webpay", type: "Ingreso", amount: 350000 },
-    { id: "tx-8", date: "2026-04-28T15:20:00", concept: "Servicios Varios", client: "Valentina Cruz", method: "MACH", type: "Ingreso", amount: 120000 },
-    { id: "tx-9", date: "2026-04-27T10:00:00", concept: "Compra Insumos Médicos", client: "Dermik Chile", method: "Transferencia", type: "Egreso", amount: 1200000 },
-    { id: "tx-10", date: "2026-04-27T12:00:00", concept: "Pago Sesión Fintoc", client: "Sandra Ortega", method: "Fintoc", type: "Ingreso", amount: 150000 },
-    { id: "tx-11", date: "2026-04-26T16:40:00", concept: "Chek Pago Abono", client: "Fernanda Diaz", method: "Chek", type: "Ingreso", amount: 540000 },
-    { id: "tx-12", date: "2026-04-26T14:00:00", concept: "Pago Débito Redcompra", client: "Isabella Núñez", method: "Redcompra", type: "Ingreso", amount: 480000 },
-    { id: "tx-13", date: "2026-04-25T11:30:00", concept: "Pago Arriendo Local", client: "Inmobiliaria Andes", method: "Transferencia", type: "Egreso", amount: 1472000 },
-    { id: "tx-14", date: "2026-04-25T15:00:00", concept: "Servicio Redcompra", client: "Andrea Silva", method: "Redcompra", type: "Ingreso", amount: 2000000 },
-    { id: "tx-15", date: "2026-04-24T10:15:00", concept: "Abono MACH Cita", client: "Gabriela Torres", method: "MACH", type: "Ingreso", amount: 200000 },
-    { id: "tx-16", date: "2026-04-24T12:00:00", concept: "Webpay Pago", client: "Valentina Cruz", method: "Webpay", type: "Ingreso", amount: 970000 },
-    { id: "tx-17", date: "2026-04-23T11:00:00", concept: "Mercado Pago Abono", client: "Sandra Ortega", method: "Mercado Pago", type: "Ingreso", amount: 980000 },
-    { id: "tx-18", date: "2026-04-23T14:30:00", concept: "Gastos Útiles Aseo", client: "Líder Supermercado", method: "MACH", type: "Egreso", amount: 52000 },
-    { id: "tx-19", date: "2026-04-22T09:00:00", concept: "Pago Efectivo Clínico", client: "Ana Martinez", method: "Efectivo", type: "Ingreso", amount: 165000 },
-    { id: "tx-20", date: "2026-04-22T16:00:00", concept: "MACH Abono", client: "Isabella Núñez", method: "MACH", type: "Ingreso", amount: 400000 },
+    { id: "tx-7", date: "2026-04-28T11:00:00", concept: "Abono Desabolladura Capó", client: "Ana Martinez", method: "Webpay", type: "Ingreso", amount: 350000 },
+    { id: "tx-8", date: "2026-04-28T15:20:00", concept: "Tratamiento Cerámico Completo", client: "Valentina Cruz", method: "MACH", type: "Ingreso", amount: 280000 },
+    { id: "tx-9", date: "2026-04-27T10:00:00", concept: "Lijadora Orbital e Insumos", client: "Piston Herramientas", method: "Transferencia", type: "Egreso", amount: 1200000 },
+    { id: "tx-10", date: "2026-04-27T12:00:00", concept: "Pintura Piezas Suzuki Fintoc", client: "Sandra Ortega", method: "Fintoc", type: "Ingreso", amount: 150000 },
+    { id: "tx-11", date: "2026-04-26T16:40:00", concept: "Abono Prepago Reparación", client: "Fernanda Diaz", method: "Chek", type: "Ingreso", amount: 540000 },
+    { id: "tx-12", date: "2026-04-26T14:00:00", concept: "Pulido 3 Pasos Redcompra", client: "Isabella Núñez", method: "Redcompra", type: "Ingreso", amount: 180000 },
+    { id: "tx-13", date: "2026-04-25T11:30:00", concept: "Arriendo Galpón Comercial", client: "Inmobiliaria Andes", method: "Transferencia", type: "Egreso", amount: 1472000 },
+    { id: "tx-14", date: "2026-04-25T15:00:00", concept: "Reparación Completa Flota", client: "Andrea Silva", method: "Redcompra", type: "Ingreso", amount: 2000000 },
+    { id: "tx-15", date: "2026-04-24T10:15:00", concept: "Abono Presupuesto Detailing", client: "Gabriela Torres", method: "MACH", type: "Ingreso", amount: 200000 },
+    { id: "tx-16", date: "2026-04-24T12:00:00", concept: "Pago Reparación Siniestro", client: "Valentina Cruz", method: "Webpay", type: "Ingreso", amount: 970000 },
+    { id: "tx-17", date: "2026-04-23T11:00:00", concept: "Abono Pintura Puerta Jeep", client: "Sandra Ortega", method: "Mercado Pago", type: "Ingreso", amount: 980000 },
+    { id: "tx-18", date: "2026-04-23T14:30:00", concept: "Compra Insumos (Lijas, Cinta)", client: "Sodimac Constructor", method: "MACH", type: "Egreso", amount: 52000 },
+    { id: "tx-19", date: "2026-04-22T09:00:00", concept: "Pago Reparación Particular", client: "Ana Martinez", method: "Efectivo", type: "Ingreso", amount: 165000 },
+    { id: "tx-20", date: "2026-04-22T16:00:00", concept: "Abono Pulido Cerámico", client: "Isabella Núñez", method: "MACH", type: "Ingreso", amount: 400000 },
     { id: "tx-21", date: "2026-04-21T11:30:00", concept: "Pago Internet Fibra Gtd", client: "GTD Manquehue", method: "Transferencia", type: "Egreso", amount: 45000 },
-    { id: "tx-22", date: "2026-04-21T15:00:00", concept: "Fintoc Pago", client: "Gabriela Torres", method: "Fintoc", type: "Ingreso", amount: 170000 },
-    { id: "tx-23", date: "2026-04-20T10:00:00", concept: "Servicios Redcompra", client: "Andrea Silva", method: "Redcompra", type: "Ingreso", amount: 20000 },
-    { id: "tx-24", date: "2026-04-20T15:00:00", concept: "Mantención Calefactor", client: "Servicio Técnico Clima", method: "Efectivo", type: "Egreso", amount: 150000 },
-    { id: "tx-25", date: "2026-04-19T11:00:00", concept: "Efectivo Caja Chica", client: "Fernanda Diaz", method: "Efectivo", type: "Ingreso", amount: 55000 },
-    { id: "tx-26", date: "2026-04-19T13:00:00", concept: "Artículos Oficina", client: "Lápiz López", method: "MACH", type: "Egreso", amount: 25000 },
-    { id: "tx-27", date: "2026-04-18T16:00:00", concept: "Pago Comisiones Quincena", client: "Staff KineOS", method: "Transferencia", type: "Egreso", amount: 200000 }
+    { id: "tx-22", date: "2026-04-21T15:00:00", concept: "Pintura Parachoques Fintoc", client: "Gabriela Torres", method: "Fintoc", type: "Ingreso", amount: 170000 },
+    { id: "tx-23", date: "2026-04-20T10:00:00", concept: "Desabolladura Puerta", client: "Andrea Silva", method: "Redcompra", type: "Ingreso", amount: 150000 },
+    { id: "tx-24", date: "2026-04-20T15:00:00", concept: "Calibración Pistolas y Filtros", client: "ServiHorno Chile", method: "Efectivo", type: "Egreso", amount: 150000 },
+    { id: "tx-25", date: "2026-04-19T11:00:00", concept: "Efectivo Caja Chica Taller", client: "Fernanda Diaz", method: "Efectivo", type: "Ingreso", amount: 55000 },
+    { id: "tx-26", date: "2026-04-19T13:00:00", concept: "Artículos Aseo Galpón", client: "Líder Mayorista", method: "MACH", type: "Egreso", amount: 25000 },
+    { id: "tx-27", date: "2026-04-18T16:00:00", concept: "Pago Comisiones Quincena Staff", client: "Técnicos TallerOS", method: "Transferencia", type: "Egreso", amount: 200000 }
   ],
 
   monthlyStats: [
@@ -283,227 +283,224 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
     { month: "Abr", income: 8420000, expense: 3180000 }
   ],
 
-  appointments: [
-    // Laura Méndez
+  appointments: [ // scheduled jobs in bays
+    // Laura Méndez (Pintora Senior - Bay 1)
     {
       id: "appt-1",
       clientName: "Ana Martinez",
       specialistId: "emp-laura",
-      service: "Masaje Reductor",
+      service: "Pintura de Parachoques",
       date: "2026-04-30",
-      time: "08:00",
+      time: "08:30",
       duration: 90,
-      type: "Sesión de paquete"
+      type: "Convenio Seguro"
     },
     {
       id: "appt-2",
       clientName: "Valentina Cruz",
       specialistId: "emp-laura",
-      service: "Drenaje Linfático",
+      service: "Pintura de Puerta",
       date: "2026-04-30",
-      time: "09:30",
+      time: "10:30",
       duration: 90,
-      type: "Sesión de paquete"
+      type: "Convenio Seguro"
     },
     {
       id: "appt-3",
       clientName: "María López",
       specialistId: "emp-laura",
-      service: "Microdermoabrasión",
+      service: "Pintura de Guardabarros",
       date: "2026-04-30",
-      time: "11:30",
+      time: "12:30",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-4",
       clientName: "Patricia Mora",
       specialistId: "emp-laura",
-      service: "Evaluación Corporal",
+      service: "Presupuesto y Daños",
       date: "2026-04-30",
-      time: "13:30",
+      time: "14:00",
       duration: 90,
-      type: "Evaluación"
+      type: "Presupuesto Daños"
     },
     {
       id: "appt-5",
       clientName: "Luisa Herrera",
       specialistId: "emp-laura",
-      service: "Masaje Reductor",
+      service: "Pintura de Parachoques",
       date: "2026-04-30",
-      time: "15:00",
+      time: "16:00",
       duration: 60,
-      type: "Sesión de paquete"
+      type: "Convenio Seguro"
     },
 
-    // Sofia Reyes
+    // Sofia Reyes (Desabolladora Senior - Bay 2)
     {
       id: "appt-6",
       clientName: "Gabriela Torres",
       specialistId: "emp-sofia",
-      service: "Radiofrecuencia",
+      service: "Desabolladura de Puerta",
       date: "2026-04-30",
       time: "08:30",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-7",
       clientName: "Isabella Núñez",
       specialistId: "emp-sofia",
-      service: "Microdermoabrasión",
+      service: "Desabolladura de Guardabarros",
       date: "2026-04-30",
-      time: "09:30",
+      time: "10:00",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-8",
       clientName: "Camila Pérez",
       specialistId: "emp-sofia",
-      service: "Facial Glow",
+      service: "Desabolladura de Capó",
       date: "2026-04-30",
-      time: "13:00",
+      time: "11:30",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-9",
       clientName: "Natalia Gómez",
       specialistId: "emp-sofia",
-      service: "Evaluación Facial",
+      service: "Presupuesto y Daños",
       date: "2026-04-30",
-      time: "14:00",
+      time: "13:30",
       duration: 90,
-      type: "Evaluación"
+      type: "Presupuesto Daños"
     },
 
-    // Daniela Ruiz
+    // Daniela Ruiz (Preparadora / Pintora - Bay 3)
     {
       id: "appt-10",
       clientName: "Fernanda Diaz",
       specialistId: "emp-daniela",
-      service: "Masaje Anticelulítico",
+      service: "Pintura de Puerta",
       date: "2026-04-30",
-      time: "08:00",
+      time: "08:30",
       duration: 90,
-      type: "Sesión de paquete"
+      type: "Convenio Seguro"
     },
     {
       id: "appt-11",
       clientName: "Andrea Silva",
       specialistId: "emp-daniela",
-      service: "Velos Fríos",
+      service: "Pintura de Parachoques",
       date: "2026-04-30",
-      time: "09:30",
+      time: "10:30",
       duration: 90,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-12",
       clientName: "Mónica Soto",
       specialistId: "emp-daniela",
-      service: "Masaje Relajante",
+      service: "Pintura de Guardabarros",
       date: "2026-04-30",
-      time: "12:00",
+      time: "12:30",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-13",
       clientName: "Carolina Rios",
       specialistId: "emp-daniela",
-      service: "Drenaje Linfático",
+      service: "Pintura de Capó",
       date: "2026-04-30",
       time: "14:00",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-14",
       clientName: "Paola Vargas",
       specialistId: "emp-daniela",
-      service: "Ultrasonido Cavit.",
+      service: "Pintura de Puerta",
       date: "2026-04-30",
-      time: "16:30",
+      time: "15:30",
       duration: 90,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
 
-    // Carmen Vega
+    // Carmen Vega (Detailing - Bay 4)
     {
       id: "appt-15",
       clientName: "Sandra Ortega",
       specialistId: "emp-carmen",
-      service: "Depilación Piernas",
+      service: "Pulido Completo",
       date: "2026-04-30",
       time: "08:30",
       duration: 90,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-16",
       clientName: "Viviana Castro",
       specialistId: "emp-carmen",
-      service: "Depilación Axilas",
+      service: "Tratamiento Cerámico",
       date: "2026-04-30",
-      time: "10:00",
+      time: "10:30",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-17",
       clientName: "Rebeca Fuentes",
       specialistId: "emp-carmen",
-      service: "Depilación Full",
+      service: "Pulido Completo",
       date: "2026-04-30",
-      time: "11:30",
+      time: "12:00",
       duration: 90,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-18",
       clientName: "Lorena Aguilar",
       specialistId: "emp-carmen",
-      service: "Depilación Cejas",
+      service: "Tratamiento Cerámico",
       date: "2026-04-30",
-      time: "13:30",
+      time: "14:00",
       duration: 60,
-      type: "Servicio individual"
+      type: "Servicio Particular"
     },
     {
       id: "appt-19",
       clientName: "Teresa Blanco",
       specialistId: "emp-carmen",
-      service: "Evaluación Piel",
+      service: "Presupuesto y Daños",
       date: "2026-04-30",
-      time: "14:30",
+      time: "15:30",
       duration: 60,
-      type: "Evaluación"
+      type: "Presupuesto Daños"
     }
   ],
 
   services: [
-    { name: "Drenaje Linfático", price: 35000, duration: 60 },
-    { name: "Microdermoabrasión", price: 45000, duration: 60 },
-    { name: "Radiofrecuencia", price: 50000, duration: 60 },
-    { name: "Facial Glow", price: 40000, duration: 60 },
-    { name: "Masaje Relajante", price: 30000, duration: 60 },
-    { name: "Masaje Reductor", price: 40000, duration: 90 },
-    { name: "Masaje Anticelulítico", price: 45000, duration: 90 },
-    { name: "Velos Fríos", price: 35000, duration: 90 },
-    { name: "Ultrasonido Cavit.", price: 50000, duration: 90 },
-    { name: "Depilación Piernas", price: 25000, duration: 90 },
-    { name: "Depilación Axilas", price: 12000, duration: 60 },
-    { name: "Depilación Full", price: 60000, duration: 90 },
-    { name: "Depilación Cejas", price: 8000, duration: 60 }
+    { name: "Pintura de Parachoques", price: 120000, duration: 60 },
+    { name: "Desabolladura de Puerta", price: 150000, duration: 90 },
+    { name: "Pintura de Puerta", price: 140000, duration: 60 },
+    { name: "Pulido Completo", price: 180000, duration: 60 },
+    { name: "Desabolladura de Guardabarros", price: 110000, duration: 60 },
+    { name: "Pintura de Guardabarros", price: 100000, duration: 90 },
+    { name: "Tratamiento Cerámico", price: 280000, duration: 90 },
+    { name: "Desabolladura de Capó", price: 160000, duration: 90 },
+    { name: "Pintura de Capó", price: 180000, duration: 90 },
+    { name: "Presupuesto y Daños", price: 0, duration: 30 }
   ],
 
   packages: [
-    { name: "Plan Verano", sessions: 8, price: 220000 },
-    { name: "Reducción Total", sessions: 10, price: 280000 },
-    { name: "Paquete Cordillera Beauty", sessions: 12, price: 350000 },
-    { name: "Facial Glow x4", sessions: 4, price: 130000 }
+    { name: "Pintura Lateral Completa", sessions: 4, price: 450000 },
+    { name: "Desabolladura y Pintura Frontal", sessions: 3, price: 380000 },
+    { name: "Detalle y Cerámico Pro", sessions: 2, price: 350000 },
+    { name: "Pack Express Parachoques", sessions: 2, price: 200000 }
   ],
 
   messages: [
@@ -514,7 +511,7 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       avatar: "G",
       unread: true,
       history: [
-        { sender: "customer", text: "Hola! Quisiera agendar una cita de radiofrecuencia para mañana en la mañana porfa", time: "08:15" }
+        { sender: "customer", text: "Hola! Quisiera agendar un presupuesto para pintar el parachoques delantero de mi auto para mañana porfa", time: "08:15" }
       ]
     },
     {
@@ -524,7 +521,7 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       avatar: "V",
       unread: true,
       history: [
-        { sender: "customer", text: "Buenas, a qué hora tienen disponible para drenaje linfático hoy?", time: "07:30" }
+        { sender: "customer", text: "Buenas, a qué hora tienen disponible para ingresar un auto por desabolladura de puerta hoy?", time: "07:30" }
       ]
     },
     {
@@ -534,8 +531,8 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       avatar: "S",
       unread: false,
       history: [
-        { sender: "customer", text: "Hola, ¿aceptan transferencia electrónica o tarjeta de débito Redcompra?", time: "Ayer" },
-        { sender: "staff", text: "Hola Sandra! Sí, aceptamos Redcompra directo en caja, Webpay online, transferencia electrónica, y MACH/Chek.", time: "Ayer" }
+        { sender: "customer", text: "Hola, ¿aceptan pago con Redcompra o Webpay para el deducible del seguro?", time: "Ayer" },
+        { sender: "staff", text: "Hola Sandra! Sí, aceptamos Redcompra directo en taller, Webpay online, transferencia electrónica, y MACH/Chek.", time: "Ayer" }
       ]
     },
     {
@@ -545,8 +542,8 @@ window.ESTHETIC_OS_DEFAULT_DATA = {
       avatar: "I",
       unread: false,
       history: [
-        { sender: "customer", text: "Me encantó la sesión de hoy, las kinesiólogas son super atentas!", time: "Ayer" },
-        { sender: "staff", text: "Qué alegría leer eso Isabella! Nos vemos en tu próxima sesión.", time: "Ayer" }
+        { sender: "customer", text: "Me encantó el acabado de pintura del capó, quedó idéntico al color original!", time: "Ayer" },
+        { sender: "staff", text: "Qué alegría leer eso Isabella! Trabajamos con códigos de color de fábrica. Nos vemos en tu próxima mantención.", time: "Ayer" }
       ]
     }
   ]
