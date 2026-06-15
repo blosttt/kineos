@@ -159,8 +159,8 @@ function applyRoleRestrictions() {
 function loginUser(email, password) {
   email = email.trim().toLowerCase();
   
-  if (email === 'admin@tallerOS.cl') {
-    currentUser = { role: 'admin', email: 'admin@tallerOS.cl', name: 'Andrea' };
+  if (email === 'admin@talleros.cl') {
+    currentUser = { role: 'admin', email: 'admin@talleros.cl', name: 'Andrea' };
     currentPortal = 'owner';
   } else {
     // Check employees base
