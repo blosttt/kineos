@@ -2,20 +2,20 @@
 
 :root {
   /* Colors - Luxury Forest Green & Gold Theme */
-  --bg-cream: #F4F6F4;
-  --sidebar-bg: #E3EAE4;
-  --text-primary: #1C2620;
-  --text-muted: #5B6B60;
-  --primary-terracotta: #2A4D34; /* Forest Green as primary accent */
-  --primary-terracotta-hover: #1E3725;
-  --primary-terracotta-light: rgba(42, 77, 52, 0.08);
-  --secondary-peach: #C5A073; /* Champagne Gold secondary */
-  --accent-peach-light: #F2EBE0; /* Champagne accent light tint */
+  --bg-cream: #F8FAFC;
+  --sidebar-bg: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --primary-terracotta: #1E40AF; /* Royal Blue primary accent */
+  --primary-terracotta-hover: #1D4ED8;
+  --primary-terracotta-light: rgba(30, 64, 175, 0.08);
+  --secondary-peach: #0F172A; /* Slate Black secondary accent */
+  --accent-peach-light: #EFF6FF; /* Very light blue accent tint */
   --card-bg: #FFFFFF;
-  --border-light: #D5DDD6;
-  --shadow-sm: 0 4px 12px rgba(34, 66, 41, 0.02);
-  --shadow-md: 0 8px 30px rgba(34, 66, 41, 0.05);
-  --shadow-lg: 0 12px 40px rgba(28, 38, 32, 0.08);
+  --border-light: #E2E8F0;
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.02);
+  --shadow-md: 0 8px 30px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.06);
   
   /* Badges & Status Colors */
   --green-bg: #E5F0E8;
@@ -126,7 +126,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(162, 89, 68, 0.2);
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
 }
 
 .clinic-name {
@@ -197,7 +197,7 @@ button {
 }
 
 .menu-item:hover {
-  background-color: rgba(162, 89, 68, 0.04);
+  background-color: rgba(30, 64, 175, 0.04);
   color: var(--text-primary);
 }
 
@@ -236,7 +236,7 @@ button {
 
 .ai-assistant-card.active {
   border-color: var(--primary-terracotta);
-  box-shadow: 0 0 15px rgba(162, 89, 68, 0.15);
+  box-shadow: 0 0 15px rgba(30, 64, 175, 0.15);
 }
 
 .ai-assistant-card.active::before {
@@ -576,7 +576,7 @@ button {
 .btn-primary {
   background-color: var(--primary-terracotta);
   color: white;
-  box-shadow: 0 4px 12px rgba(162, 89, 68, 0.15);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
 }
 
 .btn-primary:hover {
@@ -906,7 +906,7 @@ button {
 
 .timeline-item.active .timeline-marker {
   background-color: var(--primary-terracotta);
-  box-shadow: 0 0 0 2px rgba(162, 89, 68, 0.2);
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
 }
 
 .timeline-time {
@@ -1143,7 +1143,7 @@ button {
   border-radius: 8px;
   padding: 8px 10px;
   font-size: 0.75rem;
-  box-shadow: 0 2px 6px rgba(45, 37, 34, 0.04);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -1156,7 +1156,7 @@ button {
 
 .appt-card:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(45, 37, 34, 0.08);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
   z-index: 5;
 }
 
@@ -1522,7 +1522,7 @@ button {
 }
 
 .custom-table tr:hover td {
-  background-color: rgba(34, 66, 41, 0.01);
+  background-color: rgba(15, 23, 42, 0.01);
 }
 
 /* Cell Specific styling */
@@ -2037,7 +2037,7 @@ button {
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(45, 37, 34, 0.4);
+  background-color: rgba(15, 23, 42, 0.4);
   backdrop-filter: blur(4px);
   z-index: 999;
   display: none;
@@ -2236,7 +2236,7 @@ button {
   position: absolute;
   bottom: 4px;
   left: 4px;
-  background-color: rgba(45, 37, 34, 0.7);
+  background-color: rgba(15, 23, 42, 0.7);
   color: white;
   font-size: 0.55rem;
   padding: 2px 4px;
@@ -2403,7 +2403,7 @@ button {
 .login-ambient-circle {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(197, 160, 115, 0.12) 0%, rgba(197, 160, 115, 0.04) 70%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.12) 0%, rgba(30, 64, 175, 0.04) 70%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
 }
 
@@ -2419,7 +2419,7 @@ button {
   height: 400px;
   bottom: -50px;
   left: -100px;
-  background: radial-gradient(circle, rgba(197, 160, 115, 0.08) 0%, rgba(255,255,255,0) 80%);
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.08) 0%, rgba(255,255,255,0) 80%);
 }
 
 .circle-3 {
@@ -2550,7 +2550,7 @@ button {
   border-radius: 12px !important;
   font-weight: 700 !important;
   background-color: var(--primary-terracotta) !important;
-  box-shadow: 0 4px 14px rgba(42, 77, 52, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.2) !important;
 }
 
 .btn-login-submit:hover {

@@ -2508,11 +2508,11 @@ function exportTransactionToPdf(txOrId) {
   const isIncome = tx.type === 'Ingreso';
   const isBudget = tx.id.startsWith("appt");
 
-  // Accent Colors: Forest Green (#2A4D34) & Gold (#C5A073) & Text (#1C2620)
-  const cGreen = [42, 77, 52];
-  const cGold = [197, 160, 115];
-  const cText = [28, 38, 32];
-  const cMuted = [91, 107, 96];
+  // Accent Colors: Blue (#1E40AF) & Black (#0F172A)
+  const cGreen = [30, 64, 175]; // Royal Blue
+  const cGold = [15, 23, 42];   // Slate Black
+  const cText = [15, 23, 42];   // Slate Black
+  const cMuted = [71, 85, 105]; // Slate Muted
 
   // Top header green stripe
   doc.setFillColor(...cGreen);
